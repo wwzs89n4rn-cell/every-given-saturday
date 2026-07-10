@@ -185,14 +185,10 @@
     }
 
     // ─── Conflict Resolution ──────────────────────────────────────────
-    function getConflicts(game) {
-        // Find all current picks that conflict with this game (team or venue overlap)
-        const conflicts = [];
-        const pickedIds = [
+            const pickedIds = [...new Set([
             ...state.circleGames,
             ...Object.values(state.weeklyPicks),
-        ];
-
+        ])];
         const allGames = getAllGames();
         for (const id of pickedIds) {
             const picked = allGames.find(g => g.id === id);
@@ -702,12 +698,12 @@
         const violations = [];
         const teamCount = {};
         const venueCount = {};
-
-        const pickedIds = [
+        
+        const pickedIds = [...new Set([
             ...state.circleGames,
             ...Object.values(state.weeklyPicks),
-        ];
-
+        ])];
+        
         const allGames = getAllGames();
         for (const id of pickedIds) {
             const game = allGames.find(g => g.id === id);
