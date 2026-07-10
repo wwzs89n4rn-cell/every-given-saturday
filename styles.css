@@ -1,0 +1,638 @@
+:root {
+    --primary: #1a1a2e;
+    --secondary: #16213e;
+    --accent: #e94560;
+    --accent-hover: #d63851;
+    --gold: #f5a623;
+    --success: #27ae60;
+    --warning: #f39c12;
+    --danger: #e74c3c;
+    --text: #ecf0f1;
+    --text-muted: #95a5a6;
+    --card-bg: #1e2a3a;
+    --card-border: #2c3e50;
+    --radius: 8px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+    background: var(--primary);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    border-bottom: 3px solid var(--accent);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.25rem;
+}
+
+header .subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+header .credit {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.section {
+    margin-bottom: 2.5rem;
+}
+
+.section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--card-border);
+}
+
+.section-desc {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+/* Rules Panel */
+.rules-panel {
+    margin-bottom: 2.5rem;
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.rule-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    position: relative;
+}
+
+.rule-card .rule-number {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    background: var(--accent);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.rule-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: var(--gold);
+}
+
+.rule-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Buttons */
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+}
+
+.btn-secondary {
+    background: var(--card-border);
+    color: var(--text);
+}
+
+.btn-secondary:hover {
+    background: #3d566e;
+}
+
+.btn-small {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+}
+
+.btn-circle {
+    background: var(--gold);
+    color: var(--primary);
+}
+
+.btn-circle:hover {
+    background: #e09600;
+}
+
+.btn-remove {
+    background: var(--danger);
+    color: white;
+}
+
+.btn-remove:hover {
+    background: #c0392b;
+}
+
+/* Games List */
+.games-list {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.game-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.game-card:hover {
+    border-color: var(--accent);
+}
+
+.game-card.selected {
+    border-color: var(--success);
+    background: rgba(39, 174, 96, 0.1);
+}
+
+.game-card.circle-locked {
+    border-color: var(--gold);
+    background: rgba(245, 166, 35, 0.1);
+}
+
+.game-card.unavailable {
+    opacity: 0.6;
+}
+
+.game-card .matchup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex: 1;
+    min-width: 200px;
+}
+
+.game-card .teams {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.game-card .meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.game-card .badges {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.badge {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-rivalry {
+    background: var(--gold);
+    color: var(--primary);
+}
+
+.badge-ranked {
+    background: var(--accent);
+    color: white;
+}
+
+.badge-night {
+    background: #8e44ad;
+    color: white;
+}
+
+.badge-circle {
+    background: var(--gold);
+    color: var(--primary);
+}
+
+.game-card .actions {
+    display: flex;
+    gap: 0.4rem;
+}
+
+/* Game card main row */
+.game-card-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+/* Conference badge */
+.badge-conf {
+    background: #2c3e50;
+    color: #bdc3c7;
+    border: 1px solid #4a6274;
+}
+
+.badge-neutral {
+    background: #5b6e7f;
+    color: white;
+}
+
+/* Distance badges */
+.badge-distance {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+}
+
+.dist-short {
+    background: #27ae60;
+    color: white;
+}
+
+.dist-medium {
+    background: #f39c12;
+    color: var(--primary);
+}
+
+.dist-long {
+    background: #e74c3c;
+    color: white;
+}
+
+/* Impact panel */
+.impact-panel {
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius);
+    border: 1px solid var(--card-border);
+}
+
+.impact-panel h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--warning);
+}
+
+.impact-clear {
+    color: var(--success);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.conflict-panel {
+    border-color: var(--warning);
+    background: rgba(243, 156, 18, 0.05);
+}
+
+.conflict-panel h4 {
+    color: var(--warning);
+}
+
+.conflict-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.impact-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.impact-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+}
+
+.impact-table th {
+    text-align: left;
+    padding: 0.4rem 0.6rem;
+    background: var(--secondary);
+    border-bottom: 1px solid var(--card-border);
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+}
+
+.impact-table td {
+    padding: 0.4rem 0.6rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.impact-circle-row {
+    background: rgba(245, 166, 35, 0.1);
+}
+
+.impact-circle-row td {
+    color: var(--gold);
+}
+
+/* Distance in summary */
+.dist-info {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    min-width: 80px;
+    text-align: right;
+}
+
+/* Week Tabs */
+.week-tabs {
+    display: flex;
+    gap: 0.25rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    scrollbar-width: thin;
+}
+
+.week-tab {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius) var(--radius) 0 0;
+    border: 1px solid var(--card-border);
+    border-bottom: none;
+    background: var(--card-bg);
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.week-tab:hover {
+    color: var(--text);
+    background: var(--secondary);
+}
+
+.week-tab.active {
+    background: var(--secondary);
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.week-tab.has-pick {
+    color: var(--success);
+}
+
+.week-tab.has-pick::after {
+    content: ' ✓';
+}
+
+.week-tab.has-circle {
+    color: var(--gold);
+}
+
+.week-tab.has-circle::after {
+    content: ' ⭐';
+}
+
+/* Week Content */
+.week-content {
+    background: var(--secondary);
+    border: 1px solid var(--card-border);
+    border-radius: 0 var(--radius) var(--radius) var(--radius);
+    padding: 1.5rem;
+    min-height: 200px;
+}
+
+.week-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.week-header h3 {
+    font-size: 1.1rem;
+}
+
+.week-pick-info {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.filter-bar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-bar select,
+.filter-bar input {
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    color: var(--text);
+    font-size: 0.85rem;
+}
+
+/* Summary */
+.summary-content {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.summary-week {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border-left: 4px solid var(--card-border);
+    flex-wrap: wrap;
+}
+
+.summary-week.has-game {
+    border-left-color: var(--success);
+}
+
+.summary-week.is-circle {
+    border-left-color: var(--gold);
+}
+
+.summary-week .week-label {
+    font-weight: 700;
+    min-width: 70px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.summary-week .game-info {
+    flex: 1;
+    font-weight: 600;
+}
+
+.summary-week .venue-info {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2rem;
+    font-style: italic;
+}
+
+/* Violations */
+.violations-section {
+    border: 2px solid var(--danger);
+    border-radius: var(--radius);
+    padding: 1rem;
+    background: rgba(231, 76, 60, 0.05);
+}
+
+.violations-section h2 {
+    color: var(--danger);
+    border-bottom-color: var(--danger);
+}
+
+#violations-list {
+    list-style: none;
+    padding: 0;
+}
+
+#violations-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--card-border);
+    font-size: 0.9rem;
+    color: var(--danger);
+}
+
+#violations-list li:last-child {
+    border-bottom: none;
+}
+
+/* Stats bar */
+.stats-bar {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    flex-wrap: wrap;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat .stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.stat .stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .rules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .game-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .week-tabs {
+        gap: 0.15rem;
+    }
+
+    .week-tab {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--card-border);
+}

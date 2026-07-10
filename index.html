@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Every Given Saturday — College Football Road Trip Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🏈 Every Given Saturday</h1>
+        <p class="subtitle">Build Your Ideal College Football Road Trip</p>
+        <p class="credit">Inspired by <a href="https://www.google.com/search?q=josh+pate" target="_blank">Josh Pate's</a> Rules</p>
+    </header>
+
+    <main>
+        <section id="rules-panel" class="rules-panel">
+            <h2>Josh Pate's Rules</h2>
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <span class="rule-number">1</span>
+                    <h3>No Repeats</h3>
+                    <p>No team or venue twice. Once selected, they're crossed off.</p>
+                </div>
+                <div class="rule-card">
+                    <span class="rule-number">2</span>
+                    <h3>Circle Games First</h3>
+                    <p>Lock in marquee rivalry matchups before filling the rest.</p>
+                </div>
+                <div class="rule-card">
+                    <span class="rule-number">3</span>
+                    <h3>High Stakes</h3>
+                    <p>Prioritize atmosphere, postseason implications, and upset potential.</p>
+                </div>
+                <div class="rule-card">
+                    <span class="rule-number">4</span>
+                    <h3>Drivable Logistics</h3>
+                    <p>Keep travel realistic. Double-dips must be within driving distance.</p>
+                </div>
+            </div>
+            <button id="toggle-rules" class="btn btn-secondary" aria-expanded="true">Hide Rules</button>
+        </section>
+
+        <section id="circle-games-section" class="section">
+            <h2>🔴 Step 1: Lock In Your Circle Games</h2>
+            <p class="section-desc">Select the non-negotiable rivalry and marquee matchups you refuse to miss this season.</p>
+            <div id="circle-games-list" class="games-list"></div>
+        </section>
+
+        <section id="weekly-picks-section" class="section">
+            <h2>📅 Step 2: Fill Your Weekly Schedule</h2>
+            <p class="section-desc">Pick games for each remaining week, building around your circle games.</p>
+            <div id="week-tabs" class="week-tabs" role="tablist"></div>
+            <div id="week-content" class="week-content"></div>
+        </section>
+
+        <section id="schedule-summary" class="section">
+            <h2>🗺️ Your Road Trip</h2>
+            <div id="summary-content" class="summary-content">
+                <p class="empty-state">Start picking games to see your road trip take shape!</p>
+            </div>
+            <div style="margin-top: 1rem; text-align: right;">
+                <button class="btn btn-remove" onclick="app.resetAll()">🗑️ Reset All Picks</button>
+            </div>
+        </section>
+
+        <section id="violations-panel" class="section violations-section" hidden>
+            <h2>⚠️ Rule Violations</h2>
+            <ul id="violations-list"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Data is for the 2025 college football season. Built for fun — not affiliated with Josh Pate or any network.</p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
